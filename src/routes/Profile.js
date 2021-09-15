@@ -1,5 +1,18 @@
+import { authService } from "firebaseInit";
 import React from "react";
+import { useHistory } from "react-router";
 
-const Profile = () => <h1>Profile</h1>;
+// eslint-disable-next-line import/no-anonymous-default-export
+export default () => {
+  const history = useHistory();
+  const onLogOutClick = () => {
+    authService.signOut();
+    history.push("/");
+  };
 
-export default Profile;
+  return (
+    <>
+      <button onClick={onLogOutClick}>Log Out</button>
+    </>
+  );
+};
