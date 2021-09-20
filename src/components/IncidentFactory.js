@@ -20,6 +20,8 @@ const IncidentFactory = ({ userObj }) => {
       text: incident,
       createdAt: Date.now(),
       creatorId: userObj.uid,
+      leftSide: [],
+      rightSide: [],
       attachmentUrl,
     };
     await dbService.collection("incidents").add(incidentObj);

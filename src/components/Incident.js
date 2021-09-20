@@ -1,5 +1,6 @@
 import { dbService, storageService } from "firebaseInit";
 import React, { useState } from "react";
+import JudgeBtn from "./JudgeBtn";
 
 const Incident = ({ incidentObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
@@ -54,6 +55,11 @@ const Incident = ({ incidentObj, isOwner }) => {
               height="50px"
             />
           )}
+          <JudgeBtn
+            id={incidentObj.id}
+            leftArray={incidentObj.leftSide}
+            rightArray={incidentObj.rightSide}
+          />
           {isOwner && (
             <>
               <button onClick={onDeleteClick}>Delete Incident</button>
