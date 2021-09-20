@@ -1,4 +1,4 @@
-import { dbService } from "firebaseInit";
+import { dbService, storageService } from "firebaseInit";
 import React, { useState } from "react";
 
 const Incident = ({ incidentObj, isOwner }) => {
@@ -8,6 +8,7 @@ const Incident = ({ incidentObj, isOwner }) => {
     const ok = window.confirm("Are you sure you want to delete this incident?");
     if (ok) {
       await dbService.doc(`incidents/${incidentObj.id}`).delete();
+      await storageService.refFromURL(incidentObj.attachmentUrl).delete();
     }
   };
   const toggleEditing = () => setEditing(prev => !prev);
@@ -45,6 +46,14 @@ const Incident = ({ incidentObj, isOwner }) => {
       ) : (
         <>
           <h4>{incidentObj.text}</h4>
+          {incidentObj.attachmentUrl && (
+            <img
+              alt="*"
+              src={incidentObj.attachmentUrl}
+              width="50px"
+              height="50px"
+            />
+          )}
           {isOwner && (
             <>
               <button onClick={onDeleteClick}>Delete Incident</button>
