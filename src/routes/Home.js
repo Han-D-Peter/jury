@@ -41,11 +41,16 @@ const Home = ({ userObj }) => {
           placeholder="What's on your main?"
           maxLength={120}
         />
+
         <input type="submit" value="Jury" />
       </form>
       <div>
         {incidents.map(incident => (
-          <Incident key={incident.id} incidentObj={incident} />
+          <Incident
+            key={incident.id}
+            incidentObj={incident}
+            isOwner={incident.createId === userObj.uid}
+          />
         ))}
       </div>
     </span>
