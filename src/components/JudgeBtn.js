@@ -43,10 +43,10 @@ const JudgeBtn = ({ id, leftArray, rightArray }) => {
   };
   return (
     <>
-      <button onClick={toggleLeftSide}>Left</button>
-      <span>left {leftArray.length}</span>
-      <button onClick={toggleRightSide}>Right</button>
-      <span>right {rightArray.length}</span>
+      <button onClick={toggleLeftSide}>유죄</button>
+      <span>유죄: {leftArray.length}</span>
+      <button onClick={toggleRightSide}>무죄</button>
+      <span>무죄: {rightArray.length}</span>
     </>
   );
 };

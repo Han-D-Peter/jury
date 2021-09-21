@@ -21,9 +21,9 @@ const Home = ({ userObj }) => {
   }, []);
 
   return (
-    <span>
+    <div>
       <IncidentFactory userObj={userObj} />
-      <div>
+      <div style={{ marginTop: "100px" }}>
         {incidents.map(incident => (
           <Incident
             key={incident.id}
@@ -32,7 +32,7 @@ const Home = ({ userObj }) => {
           />
         ))}
       </div>
-    </span>
+    </div>
   );
 };
 

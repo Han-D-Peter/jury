@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AppRouter from "components/Router";
 import { authService } from "../firebaseInit";
+import "../styles/App.scss";
 
 function App() {
   const [init, setInit] = useState(false);
@@ -41,7 +42,6 @@ function App() {
       ) : (
         "Initializing..."
       )}
-      <footer>&copy; {new Date().getFullYear()} Jury</footer>
     </>
   );
 }

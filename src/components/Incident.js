@@ -32,17 +32,65 @@ const Incident = ({ incidentObj, isOwner }) => {
     <div>
       {editing ? (
         <>
-          <form onSubmit={onSubmit}>
-            <input
-              type="text"
-              placeholder="Edit your Incident"
-              value={newIncident}
-              onChange={onChange}
-              required
-            />
-            <input type="submit" value="Update Incident" />
-          </form>
-          <button onClick={toggleEditing}>Cancel</button>
+          <div style={{ border: "1px solid #1D1D1D", width: "500px" }}>
+            <form onSubmit={onSubmit}>
+              <input
+                type="text"
+                placeholder="Edit your Incident"
+                value={newIncident}
+                onChange={onChange}
+                maxLength={120}
+                style={{
+                  marginLeft: "10px",
+                  marginTop: "25px",
+                  width: "60%",
+                  height: "20px",
+                  border: "none",
+                  outline: "none",
+                }}
+                required
+              />
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                <div
+                  style={{
+                    marginTop: "20px",
+                    width: "100%",
+                    marginLeft: "240px",
+                  }}
+                >
+                  <input
+                    type="submit"
+                    value="Update Incident"
+                    style={{
+                      width: "130px",
+                      border: "1px solid #1D1D1D",
+                      backgroundColor: "rgba(0,0,0,0)",
+                      color: "#1D1D1D",
+                      padding: "5px",
+                    }}
+                  />
+                  <button
+                    onClick={toggleEditing}
+                    style={{
+                      width: "130px",
+                      border: "1px solid #1D1D1D",
+                      backgroundColor: "rgba(0,0,0,0)",
+                      color: "#1D1D1D",
+                      padding: "5px",
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
         </>
       ) : (
         <>
