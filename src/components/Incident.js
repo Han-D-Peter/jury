@@ -32,10 +32,15 @@ const Incident = ({ incidentObj, isOwner }) => {
     <div>
       {editing ? (
         <>
-          <div style={{ border: "1px solid #1D1D1D", width: "500px" }}>
+          <div
+            style={{
+              border: "1px solid #1D1D1D",
+              width: "500px",
+              height: "139px",
+            }}
+          >
             <form onSubmit={onSubmit}>
-              <input
-                type="text"
+              <textarea
                 placeholder="Edit your Incident"
                 value={newIncident}
                 onChange={onChange}
@@ -43,10 +48,12 @@ const Incident = ({ incidentObj, isOwner }) => {
                 style={{
                   marginLeft: "10px",
                   marginTop: "25px",
-                  width: "60%",
-                  height: "20px",
+                  width: "95%",
+                  height: "60px",
                   border: "none",
                   outline: "none",
+                  wordBreak: "break-all",
+                  resize: "none",
                 }}
                 required
               />
@@ -94,26 +101,36 @@ const Incident = ({ incidentObj, isOwner }) => {
         </>
       ) : (
         <>
-          <h4>{incidentObj.text}</h4>
-          {incidentObj.attachmentUrl && (
-            <img
-              alt="*"
-              src={incidentObj.attachmentUrl}
-              width="50px"
-              height="50px"
+          <div style={{ border: "1px solid #1D1D1D", width: "500px" }}>
+            {/* {incidentObj.attachmentUrl && (
+              <img
+                alt="*"
+                src={incidentObj.attachmentUrl}
+                width="50px"
+                height="50px"
+              />
+            )} */}
+            <div
+              style={{
+                padding: "10px",
+                width: "95%",
+                wordBreak: "break-all",
+              }}
+            >
+              {incidentObj.text}
+            </div>
+            <JudgeBtn
+              id={incidentObj.id}
+              leftArray={incidentObj.leftSide}
+              rightArray={incidentObj.rightSide}
             />
-          )}
-          <JudgeBtn
-            id={incidentObj.id}
-            leftArray={incidentObj.leftSide}
-            rightArray={incidentObj.rightSide}
-          />
-          {isOwner && (
-            <>
-              <button onClick={onDeleteClick}>Delete Incident</button>
-              <button onClick={toggleEditing}>Edit Incident</button>
-            </>
-          )}
+            {isOwner && (
+              <>
+                <button onClick={onDeleteClick}>Delete Incident</button>
+                <button onClick={toggleEditing}>Edit Incident</button>
+              </>
+            )}
+          </div>
         </>
       )}
     </div>
