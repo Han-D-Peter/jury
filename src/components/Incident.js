@@ -44,7 +44,6 @@ const Incident = ({ incidentObj, isOwner }) => {
                 placeholder="Edit your Incident"
                 value={newIncident}
                 onChange={onChange}
-                maxLength={120}
                 style={{
                   marginLeft: "10px",
                   marginTop: "25px",
@@ -114,7 +113,12 @@ const Incident = ({ incidentObj, isOwner }) => {
               style={{
                 padding: "10px",
                 width: "95%",
+                height: "50px",
+                overflow: "hidden",
+                whiteSpace: "pre",
                 wordBreak: "break-all",
+                textOverflow: "ellipsis",
+                marginBottom: "10px",
               }}
             >
               {incidentObj.text}
