@@ -75,23 +75,6 @@ const JudgeBtn = ({ id, userObj, leftArray, rightArray }) => {
               onClick={toggleLeftSide}
               style={{
                 border: "1px solid #c94e4e",
-                backgroundColor: "white",
-                width: "110px",
-                color: "Black",
-                padding: "5px",
-                borderRadius: "10px",
-                marginLeft: "5px",
-              }}
-            >
-              <BsCheck size={13} />
-              <ImHammer2 color={"black"} />
-              <span> Guilty</span>
-            </button>
-          ) : (
-            <button
-              onClick={toggleLeftSide}
-              style={{
-                border: "0px solid #1D1D1D",
                 backgroundColor: "#c94e4e",
                 width: "110px",
                 color: "white",
@@ -100,7 +83,24 @@ const JudgeBtn = ({ id, userObj, leftArray, rightArray }) => {
                 marginLeft: "5px",
               }}
             >
+              <BsCheck size={13} />
               <ImHammer2 color={"white"} />
+              <span> Guilty</span>
+            </button>
+          ) : (
+            <button
+              onClick={toggleLeftSide}
+              style={{
+                border: "1px solid #c94e4e",
+                backgroundColor: "white",
+                width: "110px",
+                color: "black",
+                padding: "5px",
+                borderRadius: "10px",
+                marginLeft: "5px",
+              }}
+            >
+              <ImHammer2 color={"black"} />
               <span> Guilty</span>
             </button>
           )}
@@ -172,9 +172,9 @@ const JudgeBtn = ({ id, userObj, leftArray, rightArray }) => {
               onClick={toggleRightSide}
               style={{
                 border: "1px solid #485ae2",
-                backgroundColor: "white",
+                backgroundColor: "#485ae2",
                 width: "110px",
-                color: "black",
+                color: "white",
                 padding: "5px",
                 borderRadius: "10px",
               }}
@@ -187,10 +187,10 @@ const JudgeBtn = ({ id, userObj, leftArray, rightArray }) => {
             <button
               onClick={toggleRightSide}
               style={{
-                border: "0px solid #1D1D1D",
-                backgroundColor: "#485ae2",
+                border: "1px solid #485ae2",
+                backgroundColor: "white",
                 width: "110px",
-                color: "white",
+                color: "black",
                 padding: "5px",
                 borderRadius: "10px",
               }}
