@@ -1,5 +1,23 @@
 import { authService, dbService, firebaseInstance } from "firebaseInit";
 import React from "react";
+import { ImHammer2, ImFire } from "react-icons/im";
+import styled from "styled-components";
+
+const NotGuiltyBar = styled.div`
+  width: ${props => (240 * props.amount) / 100}px;
+  height: 15px;
+  background-color: #485ae2;
+  border-radius: 10px 0px 0px 10px;
+  padding: 1px 0px 1px 0px;
+`;
+
+const GuiltyBar = styled.div`
+  height: 15px;
+  width: ${props => (240 * props.amount) / 100}px;
+  background-color: #c84e4e;
+  border-radius: 0px 10px 10px 0px;
+  padding: 1px 0px 1px 0px;
+`;
 
 const JudgeBtn = ({ id, leftArray, rightArray }) => {
   const toggleLeftSide = async event => {
@@ -43,10 +61,108 @@ const JudgeBtn = ({ id, leftArray, rightArray }) => {
   };
   return (
     <>
-      <button onClick={toggleLeftSide}>유죄</button>
-      <span>유죄: {leftArray.length}</span>
-      <button onClick={toggleRightSide}>무죄</button>
-      <span>무죄: {rightArray.length}</span>
+      <div
+        style={{
+          padding: "0px 20px 0px 20px",
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <button
+            onClick={toggleLeftSide}
+            style={{
+              border: "0px solid #1D1D1D",
+              backgroundColor: "#c94e4e",
+              width: "90px",
+              color: "white",
+              padding: "5px",
+              borderRadius: "10px",
+              marginLeft: "5px",
+            }}
+          >
+            <ImHammer2 color={"white"} />
+            <span> Guilty</span>
+          </button>
+          <GuiltyBar
+            amount={
+              leftArray.length + rightArray.length > 0
+                ? (
+                    leftArray.length /
+                    (leftArray.length + rightArray.length)
+                  ).toFixed(4) * 100
+                : 0
+            }
+          >
+            <span
+              style={{
+                color: "white",
+                fontSize: 12,
+                float: "right",
+                marginRight: "10px",
+              }}
+            >
+              {leftArray.length + rightArray.length > 0
+                ? (
+                    leftArray.length /
+                    (leftArray.length + rightArray.length)
+                  ).toFixed(4) *
+                    100 +
+                  "%"
+                : null}
+            </span>
+          </GuiltyBar>
+          <div style={{ marginLeft: "3px" }}>
+            {leftArray.length + rightArray.length > 0 ? (
+              <ImFire size={25} color={"red"} />
+            ) : null}
+          </div>
+        </div>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <NotGuiltyBar
+            amount={
+              leftArray.length + rightArray.length > 0
+                ? (
+                    rightArray.length /
+                    (leftArray.length + rightArray.length)
+                  ).toFixed(4) * 100
+                : 0
+            }
+          >
+            <span
+              style={{
+                color: "white",
+                fontSize: 12,
+                float: "left",
+                marginLeft: "10px",
+              }}
+            >
+              {leftArray.length + rightArray.length > 0
+                ? (
+                    rightArray.length /
+                    (leftArray.length + rightArray.length)
+                  ).toFixed(4) *
+                    100 +
+                  "%"
+                : null}
+            </span>
+          </NotGuiltyBar>
+          <button
+            onClick={toggleRightSide}
+            style={{
+              border: "0px solid #1D1D1D",
+              backgroundColor: "#485ae2",
+              width: "90px",
+              color: "white",
+              padding: "5px",
+              borderRadius: "10px",
+            }}
+          >
+            <ImHammer2 />
+            <span> Not Guilty</span>
+          </button>
+        </div>
+      </div>
     </>
   );
 };

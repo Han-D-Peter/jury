@@ -29,25 +29,42 @@ const Incident = ({ incidentObj, isOwner }) => {
     setNewIncident(value);
   };
   return (
-    <div>
+    <div style={{ marginBottom: "15px" }}>
       {editing ? (
         <>
           <div
             style={{
-              border: "1px solid #1D1D1D",
               width: "500px",
-              height: "139px",
+              paddingBottom: "10px",
+              paddingTop: "3px",
+              borderRadius: "10px",
+              boxShadow: "0px 5px 10px 0.1px #8e8b8b",
             }}
           >
+            <div
+              style={{
+                marginLeft: "5px",
+                marginTop: "5px",
+                width: "70px",
+                paddingLeft: "10px",
+                paddingTop: "4px",
+                paddingBottom: "4px",
+                borderRadius: "10px",
+                color: "white",
+                backgroundColor: "brown",
+              }}
+            >
+              <span>Incident</span>
+            </div>
             <form onSubmit={onSubmit}>
               <textarea
                 placeholder="Edit your Incident"
                 value={newIncident}
                 onChange={onChange}
                 style={{
-                  marginLeft: "10px",
+                  marginLeft: "30px",
                   marginTop: "25px",
-                  width: "95%",
+                  width: "90%",
                   height: "60px",
                   border: "none",
                   outline: "none",
@@ -65,9 +82,9 @@ const Incident = ({ incidentObj, isOwner }) => {
               >
                 <div
                   style={{
-                    marginTop: "20px",
+                    marginTop: "10px",
                     width: "100%",
-                    marginLeft: "240px",
+                    marginLeft: "230px",
                   }}
                 >
                   <input
@@ -79,6 +96,7 @@ const Incident = ({ incidentObj, isOwner }) => {
                       backgroundColor: "rgba(0,0,0,0)",
                       color: "#1D1D1D",
                       padding: "5px",
+                      borderRadius: "10px",
                     }}
                   />
                   <button
@@ -89,6 +107,8 @@ const Incident = ({ incidentObj, isOwner }) => {
                       backgroundColor: "rgba(0,0,0,0)",
                       color: "#1D1D1D",
                       padding: "5px",
+                      borderRadius: "10px",
+                      marginLeft: "5px",
                     }}
                   >
                     Cancel
@@ -100,7 +120,30 @@ const Incident = ({ incidentObj, isOwner }) => {
         </>
       ) : (
         <>
-          <div style={{ border: "1px solid #1D1D1D", width: "500px" }}>
+          <div
+            style={{
+              width: "500px",
+              paddingBottom: "10px",
+              paddingTop: "3px",
+              borderRadius: "10px",
+              boxShadow: "0px 5px 10px 0.1px #8e8b8b",
+            }}
+          >
+            <div
+              style={{
+                marginLeft: "5px",
+                marginTop: "5px",
+                width: "70px",
+                paddingLeft: "10px",
+                paddingTop: "4px",
+                paddingBottom: "4px",
+                borderRadius: "10px",
+                color: "white",
+                backgroundColor: "brown",
+              }}
+            >
+              <span>Incident</span>
+            </div>
             {/* {incidentObj.attachmentUrl && (
               <img
                 alt="*"
@@ -112,28 +155,72 @@ const Incident = ({ incidentObj, isOwner }) => {
             <div
               style={{
                 padding: "10px",
-                width: "95%",
-                height: "50px",
+                width: "85%",
+                height: "60px",
                 overflow: "hidden",
                 whiteSpace: "pre",
                 wordBreak: "break-all",
+                wordWrap: "break-word",
                 textOverflow: "ellipsis",
                 marginBottom: "10px",
+                marginLeft: "23px",
+                fontSize: "14px",
               }}
             >
               {incidentObj.text}
             </div>
-            <JudgeBtn
-              id={incidentObj.id}
-              leftArray={incidentObj.leftSide}
-              rightArray={incidentObj.rightSide}
-            />
-            {isOwner && (
-              <>
-                <button onClick={onDeleteClick}>Delete Incident</button>
-                <button onClick={toggleEditing}>Edit Incident</button>
-              </>
-            )}
+            <div>
+              <JudgeBtn
+                id={incidentObj.id}
+                leftArray={incidentObj.leftSide}
+                rightArray={incidentObj.rightSide}
+              />
+
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  marginTop: "10px",
+                }}
+              >
+                {isOwner && (
+                  <>
+                    <div>
+                      <button
+                        onClick={onDeleteClick}
+                        style={{
+                          width: "130px",
+                          border: "1px solid #1D1D1D",
+                          backgroundColor: "rgba(0,0,0,0)",
+                          color: "#1D1D1D",
+                          padding: "5px",
+                          borderRadius: "10px",
+                          marginLeft: "5px",
+                        }}
+                      >
+                        Delete Incident
+                      </button>
+                    </div>
+                    <div>
+                      <button
+                        onClick={toggleEditing}
+                        style={{
+                          width: "130px",
+                          border: "1px solid #1D1D1D",
+                          backgroundColor: "rgba(0,0,0,0)",
+                          color: "#1D1D1D",
+                          padding: "5px",
+                          borderRadius: "10px",
+                          marginLeft: "5px",
+                        }}
+                      >
+                        Edit Incident
+                      </button>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
           </div>
         </>
       )}
