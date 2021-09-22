@@ -52,6 +52,7 @@ const MyCourt = ({ userObj }) => {
         incident.rightSide.includes(userObj.uid) ? (
           <Incident
             key={incident.id}
+            userObj={userObj}
             incidentObj={incident}
             isOwner={incident.creatorId === userObj.uid}
           />
@@ -62,6 +63,7 @@ const MyCourt = ({ userObj }) => {
         incident.rightSide.includes(userObj.uid) ? (
           <Incident
             key={incident.id}
+            userObj={userObj}
             incidentObj={incident}
             isOwner={incident.creatorId === userObj.uid}
           />

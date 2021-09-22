@@ -12,9 +12,9 @@ const MyCase = ({ userObj }) => {
       .onSnapshot(snapshot => {
         let incidentArray = [];
         snapshot.forEach(doc => {
-          incidentArray.push({ 
-            id: doc.id, 
-            ...doc.data() 
+          incidentArray.push({
+            id: doc.id,
+            ...doc.data(),
           });
         });
         setIncidents(incidentArray);
@@ -30,6 +30,7 @@ const MyCase = ({ userObj }) => {
       {incidents.map(incident => (
         <Incident
           key={incident.id}
+          userObj={userObj}
           incidentObj={incident}
           isOwner={incident.creatorId === userObj.uid}
         />

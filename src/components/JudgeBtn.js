@@ -1,10 +1,11 @@
 import { authService, dbService, firebaseInstance } from "firebaseInit";
 import React from "react";
 import { ImHammer2, ImFire } from "react-icons/im";
+import { BsCheck } from "react-icons/bs";
 import styled from "styled-components";
 
 const NotGuiltyBar = styled.div`
-  width: ${props => (240 * props.amount) / 100}px;
+  width: ${props => (200 * props.amount) / 100}px;
   height: 15px;
   background-color: #485ae2;
   border-radius: 10px 0px 0px 10px;
@@ -13,13 +14,13 @@ const NotGuiltyBar = styled.div`
 
 const GuiltyBar = styled.div`
   height: 15px;
-  width: ${props => (240 * props.amount) / 100}px;
+  width: ${props => (200 * props.amount) / 100}px;
   background-color: #c84e4e;
   border-radius: 0px 10px 10px 0px;
   padding: 1px 0px 1px 0px;
 `;
 
-const JudgeBtn = ({ id, leftArray, rightArray }) => {
+const JudgeBtn = ({ id, userObj, leftArray, rightArray }) => {
   const toggleLeftSide = async event => {
     event.preventDefault();
     const user = authService.currentUser;
@@ -69,21 +70,40 @@ const JudgeBtn = ({ id, leftArray, rightArray }) => {
         }}
       >
         <div style={{ display: "flex", alignItems: "center" }}>
-          <button
-            onClick={toggleLeftSide}
-            style={{
-              border: "0px solid #1D1D1D",
-              backgroundColor: "#c94e4e",
-              width: "90px",
-              color: "white",
-              padding: "5px",
-              borderRadius: "10px",
-              marginLeft: "5px",
-            }}
-          >
-            <ImHammer2 color={"white"} />
-            <span> Guilty</span>
-          </button>
+          {leftArray.includes(userObj.uid) ? (
+            <button
+              onClick={toggleLeftSide}
+              style={{
+                border: "1px solid #c94e4e",
+                backgroundColor: "white",
+                width: "110px",
+                color: "Black",
+                padding: "5px",
+                borderRadius: "10px",
+                marginLeft: "5px",
+              }}
+            >
+              <BsCheck size={13} />
+              <ImHammer2 color={"black"} />
+              <span> Guilty</span>
+            </button>
+          ) : (
+            <button
+              onClick={toggleLeftSide}
+              style={{
+                border: "0px solid #1D1D1D",
+                backgroundColor: "#c94e4e",
+                width: "110px",
+                color: "white",
+                padding: "5px",
+                borderRadius: "10px",
+                marginLeft: "5px",
+              }}
+            >
+              <ImHammer2 color={"white"} />
+              <span> Guilty</span>
+            </button>
+          )}
           <GuiltyBar
             amount={
               leftArray.length + rightArray.length > 0
@@ -102,7 +122,7 @@ const JudgeBtn = ({ id, leftArray, rightArray }) => {
                 marginRight: "10px",
               }}
             >
-              {leftArray.length + rightArray.length > 0
+              {leftArray.length + rightArray.length > 0 && leftArray.length > 0
                 ? (
                     leftArray.length /
                     (leftArray.length + rightArray.length)
@@ -137,7 +157,7 @@ const JudgeBtn = ({ id, leftArray, rightArray }) => {
                 marginLeft: "10px",
               }}
             >
-              {leftArray.length + rightArray.length > 0
+              {leftArray.length + rightArray.length > 0 && rightArray.length > 0
                 ? (
                     rightArray.length /
                     (leftArray.length + rightArray.length)
@@ -147,20 +167,38 @@ const JudgeBtn = ({ id, leftArray, rightArray }) => {
                 : null}
             </span>
           </NotGuiltyBar>
-          <button
-            onClick={toggleRightSide}
-            style={{
-              border: "0px solid #1D1D1D",
-              backgroundColor: "#485ae2",
-              width: "90px",
-              color: "white",
-              padding: "5px",
-              borderRadius: "10px",
-            }}
-          >
-            <ImHammer2 />
-            <span> Not Guilty</span>
-          </button>
+          {rightArray.includes(userObj.uid) ? (
+            <button
+              onClick={toggleRightSide}
+              style={{
+                border: "1px solid #485ae2",
+                backgroundColor: "white",
+                width: "110px",
+                color: "black",
+                padding: "5px",
+                borderRadius: "10px",
+              }}
+            >
+              <BsCheck size={13} />
+              <ImHammer2 />
+              <span> Not Guilty</span>
+            </button>
+          ) : (
+            <button
+              onClick={toggleRightSide}
+              style={{
+                border: "0px solid #1D1D1D",
+                backgroundColor: "#485ae2",
+                width: "110px",
+                color: "white",
+                padding: "5px",
+                borderRadius: "10px",
+              }}
+            >
+              <ImHammer2 />
+              <span> Not Guilty</span>
+            </button>
+          )}
         </div>
       </div>
     </>

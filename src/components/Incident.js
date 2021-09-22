@@ -2,7 +2,7 @@ import { dbService, storageService } from "firebaseInit";
 import React, { useState } from "react";
 import JudgeBtn from "./JudgeBtn";
 
-const Incident = ({ incidentObj, isOwner }) => {
+const Incident = ({ userObj, incidentObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
   const [newIncident, setNewIncident] = useState(incidentObj.text);
   const onDeleteClick = async () => {
@@ -172,6 +172,7 @@ const Incident = ({ incidentObj, isOwner }) => {
             <div>
               <JudgeBtn
                 id={incidentObj.id}
+                userObj={userObj}
                 leftArray={incidentObj.leftSide}
                 rightArray={incidentObj.rightSide}
               />

@@ -27,6 +27,7 @@ const Home = ({ userObj }) => {
         {incidents.map(incident => (
           <Incident
             key={incident.id}
+            userObj={userObj}
             incidentObj={incident}
             isOwner={incident.creatorId === userObj.uid}
           />
