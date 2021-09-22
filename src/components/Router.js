@@ -39,6 +39,7 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
               </>
             )}
           </Switch>
+
           <footer>
             <small>
               © 2021 made with by -{" "}

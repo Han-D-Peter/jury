@@ -5,7 +5,7 @@ import { FaCameraRetro } from "react-icons/fa";
 
 const IncidentFactory = ({ userObj }) => {
   const [incident, setIncident] = useState("");
-  const [attachment, setAttachment] = useState();
+  const [attachment, setAttachment] = useState("");
 
   const onSubmit = async event => {
     event.preventDefault();

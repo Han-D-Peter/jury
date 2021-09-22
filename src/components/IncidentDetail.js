@@ -2,7 +2,7 @@ import { dbService, storageService } from "firebaseInit";
 import React, { useState } from "react";
 import JudgeBtn from "./JudgeBtn";
 
-const Incident = ({
+const IncidentDetail = ({
   userObj,
   incidentObj,
   isOwner,
@@ -35,12 +35,8 @@ const Incident = ({
     setNewIncident(value);
   };
 
-  const clickIncident = () => {
-    setDetailInfo(incidentObj);
-    setDetail(true);
-  };
   return (
-    <div style={{ marginBottom: "15px" }} onClick={clickIncident}>
+    <div style={{ marginBottom: "15px", position: "fixed" }}>
       {editing ? (
         <>
           <div
@@ -155,19 +151,20 @@ const Incident = ({
             >
               <span>Incident</span>
             </div>
-            {/* {incidentObj.attachmentUrl && (
-              <img
-                alt="*"
-                src={incidentObj.attachmentUrl}
-                width="50px"
-                height="50px"
-              />
-            )} */}
+            {incidentObj?.attachmentUrl && (
+              <div style={{ width: "85%", marginLeft: "20%" }}>
+                <img
+                  alt="*"
+                  src={incidentObj.attachmentUrl}
+                  width="70%"
+                  height="70%"
+                />
+              </div>
+            )}
             <div
               style={{
                 padding: "10px",
                 width: "85%",
-                height: "60px",
                 overflow: "hidden",
                 whiteSpace: "pre",
                 wordBreak: "break-all",
@@ -240,4 +237,4 @@ const Incident = ({
   );
 };
 
-export default Incident;
+export default IncidentDetail;
