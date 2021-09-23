@@ -8,6 +8,11 @@ function App() {
   const [userObj, setUserObj] = useState(null);
 
   useEffect(() => {
+    const htmlTitle = document.querySelector("title");
+    htmlTitle.innerHTML = "Jury";
+  }, []);
+
+  useEffect(() => {
     authService.onAuthStateChanged(user => {
       if (user) {
         setUserObj({
