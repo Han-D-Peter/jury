@@ -194,14 +194,7 @@ const Incident = ({
                 )}
               </div>
             </div>
-            {/* {incidentObj.attachmentUrl && (
-              <img
-                alt="*"
-                src={incidentObj.attachmentUrl}
-                width="50px"
-                height="50px"
-              />
-            )} */}
+
             <div
               style={{
                 padding: "10px",
