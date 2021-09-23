@@ -95,15 +95,15 @@ const IncidentDetail = ({
                 borderRadius: "10px",
                 color: "white",
                 backgroundColor: `${colorOfGuiltyOrNotGuilty(
-                  incident.leftSide.length,
-                  incident.rightSide.length
+                  incident?.leftSide?.length,
+                  incident?.rightSide?.length
                 )}`,
               }}
             >
               <div>
                 {setGuiltyOrNotGuilty(
-                  incident.leftSide.length,
-                  incident.rightSide.length
+                  incident?.leftSide?.length,
+                  incident?.rightSide?.length
                 )}
               </div>
             </div>
@@ -189,8 +189,8 @@ const IncidentDetail = ({
                 borderRadius: "10px",
                 color: "white",
                 backgroundColor: `${colorOfGuiltyOrNotGuilty(
-                  incident.leftSide.length,
-                  incident.rightSide.length
+                  incident?.leftSide?.length,
+                  incident?.rightSide?.length
                 )}`,
                 display: "flex",
                 justifyContent: "center",
@@ -199,8 +199,8 @@ const IncidentDetail = ({
             >
               <div>
                 {setGuiltyOrNotGuilty(
-                  incident.leftSide.length,
-                  incident.rightSide.length
+                  incident?.leftSide?.length,
+                  incident?.rightSide?.length
                 )}
               </div>
             </div>
