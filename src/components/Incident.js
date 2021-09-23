@@ -11,9 +11,11 @@ const Incident = ({
 }) => {
   const [editing, setEditing] = useState(false);
   const [newIncident, setNewIncident] = useState(incidentObj.text);
+
   const onDeleteClick = async () => {
     const ok = window.confirm("Are you sure you want to delete this incident?");
     if (ok) {
+      setDetail(false);
       await dbService.doc(`incidents/${incidentObj.id}`).delete();
       await storageService.refFromURL(incidentObj.attachmentUrl).delete();
     }
