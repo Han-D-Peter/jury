@@ -31,10 +31,10 @@ const Navigation = ({ userObj }) => {
             <Link to="/profile">{userObj.displayName} Profile</Link>
           </MenuItem>
           <MenuItem icon={<GiPrisoner />}>
-            <Link to="/mycase">My Case</Link>
+            <Link to="/mycase">내 소송 사건들</Link>
           </MenuItem>
           <MenuItem icon={<ImHammer2 />}>
-            <Link to="/mycourt">My Law Court</Link>
+            <Link to="/mycourt">내 판결 사건들</Link>
           </MenuItem>
         </Menu>
       </SidebarContent>
