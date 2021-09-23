@@ -132,6 +132,19 @@ const JudgeBtn = ({ id, userObj, leftArray, rightArray }) => {
                   "%"
                 : null}
             </span>
+            <br></br>
+            <span
+              style={{
+                color: "#C84E4E",
+                fontSize: 12,
+                float: "right",
+                marginRight: "10px",
+              }}
+            >
+              {leftArray?.length > 0
+                ? leftArray?.length?.toLocaleString("ko-KR")
+                : null}
+            </span>
           </GuiltyBar>
           <div style={{ marginLeft: "3px" }}>
             {leftArray?.length + rightArray?.length > 0 ? (
@@ -140,35 +153,50 @@ const JudgeBtn = ({ id, userObj, leftArray, rightArray }) => {
           </div>
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <NotGuiltyBar
-            amount={
-              leftArray?.length + rightArray?.length > 0
-                ? (
-                    rightArray?.length /
-                    (leftArray?.length + rightArray?.length)
-                  ).toFixed(4) * 100
-                : 0
-            }
-          >
-            <span
-              style={{
-                color: "white",
-                fontSize: 12,
-                float: "left",
-                marginLeft: "10px",
-              }}
+          <>
+            <NotGuiltyBar
+              amount={
+                leftArray?.length + rightArray?.length > 0
+                  ? (
+                      rightArray?.length /
+                      (leftArray?.length + rightArray?.length)
+                    ).toFixed(4) * 100
+                  : 0
+              }
             >
-              {leftArray?.length + rightArray?.length > 0 &&
-              rightArray?.length > 0
-                ? (
-                    rightArray?.length /
-                    (leftArray?.length + rightArray?.length)
-                  ).toFixed(4) *
-                    100 +
-                  "%"
-                : null}
-            </span>
-          </NotGuiltyBar>
+              <span
+                style={{
+                  color: "white",
+                  fontSize: 12,
+                  float: "left",
+                  marginLeft: "10px",
+                }}
+              >
+                {leftArray?.length + rightArray?.length > 0 &&
+                rightArray?.length > 0
+                  ? (
+                      rightArray?.length /
+                      (leftArray?.length + rightArray?.length)
+                    ).toFixed(4) *
+                      100 +
+                    "%"
+                  : null}
+              </span>
+              <br></br>
+              <span
+                style={{
+                  color: "#485AE2",
+                  fontSize: 12,
+                  float: "left",
+                  marginLeft: "10px",
+                }}
+              >
+                {rightArray?.length > 0
+                  ? rightArray?.length.toLocaleString("ko-KR")
+                  : null}
+              </span>
+            </NotGuiltyBar>
+          </>
           {rightArray?.includes(userObj.uid) ? (
             <button
               onClick={toggleRightSide}
