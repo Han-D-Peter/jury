@@ -78,7 +78,7 @@ const IncidentFactory = ({ userObj }) => {
           value={incident}
           onChange={onChange}
           type="text"
-          placeholder="What's on your main?"
+          placeholder="억울한 얘기를 소송해보세요"
           maxLength={120}
           style={{
             marginLeft: "10px",
@@ -120,7 +120,7 @@ const IncidentFactory = ({ userObj }) => {
           <div style={{ marginTop: "20px", marginRight: "10px" }}>
             <input
               type="submit"
-              value="Jury"
+              value="소송하기"
               style={{
                 width: "100px",
                 border: "1px solid #1D1D1D",

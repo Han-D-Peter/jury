@@ -30,7 +30,7 @@ export default ({ userObj, refreshUser }) => {
   };
 
   return (
-    <>
+    <div style={{ height: "100%", marginTop: "20%" }}>
       <form onSubmit={onSubmit}>
         <div
           style={{
@@ -39,7 +39,7 @@ export default ({ userObj, refreshUser }) => {
             height: "40px",
             justifyContent: "space-around",
             boxShadow: "2px 5px 10px 0.1px #8e8b8b",
-            borderRadius: "10px 10px 10px 10px",
+            borderRadius: "5px 5px 5px 5px",
           }}
         >
           <div>
@@ -52,7 +52,7 @@ export default ({ userObj, refreshUser }) => {
                 width: "220px",
                 height: "96%",
                 border: "0px solid white",
-                borderRadius: "10px 0px 0px 10px",
+                borderRadius: "5px 0px 0px 5px",
                 textAlign: "center",
               }}
             />
@@ -64,9 +64,10 @@ export default ({ userObj, refreshUser }) => {
               style={{
                 width: "220px",
                 height: "100%",
+                color: "white",
                 backgroundColor: "#60bfff",
                 border: "0px solid white",
-                borderRadius: "0px 10px 10px 0px",
+                borderRadius: "0px 5px 5px 0px",
               }}
             />
           </div>
@@ -79,16 +80,17 @@ export default ({ userObj, refreshUser }) => {
             width: "440px",
             padding: "10px",
             height: "40px",
+            color: "white",
             backgroundColor: "#c94e4e",
             marginTop: "30px",
             border: "0px solid white",
-            borderRadius: "10px 10px 10px 10px",
+            borderRadius: "5px 5px 5px 5px",
             boxShadow: "2px 5px 10px 0.1px #8e8b8b",
           }}
         >
           Log Out
         </button>
       </div>
-    </>
+    </div>
   );
 };
