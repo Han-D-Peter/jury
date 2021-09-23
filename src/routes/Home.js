@@ -51,6 +51,7 @@ const Home = ({ userObj }) => {
             userObj={userObj}
             incidentObj={detailInfo}
             isOwner={detailInfo.creatorId === userObj.uid}
+            setDetail={setDetail}
           />
         ) : null}
       </div>

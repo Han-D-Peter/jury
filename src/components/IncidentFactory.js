@@ -74,20 +74,22 @@ const IncidentFactory = ({ userObj }) => {
         </div>
       )}
       <form onSubmit={onSubmit}>
-        <input
+        <textarea
           className="factoryInput__input"
           value={incident}
           onChange={onChange}
-          type="text"
           placeholder="억울한 얘기를 소송해보세요"
-          maxLength={120}
+          maxLength={8000}
+          required
           style={{
             marginLeft: "10px",
             marginTop: "25px",
-            width: "60%",
-            height: "20px",
+            width: "90%",
+            height: `${(60 + incident.length / 3.5).toFixed(0)}px`,
             border: "none",
             outline: "none",
+            wordBreak: "break-all",
+            resize: "none",
           }}
         />
         <div
