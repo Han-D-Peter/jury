@@ -194,7 +194,6 @@ const Incident = ({
                 )}
               </div>
             </div>
-
             <div
               style={{
                 padding: "10px",
