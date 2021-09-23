@@ -39,6 +39,27 @@ const Incident = ({
     setDetailInfo(incidentObj);
     setDetail(true);
   };
+
+  const setGuiltyOrNotGuilty = (lengthOfGuilty, lengthOfNotGuilty) => {
+    if (lengthOfGuilty === lengthOfNotGuilty) {
+      return "Incident";
+    } else if (lengthOfGuilty > lengthOfNotGuilty) {
+      return "Guilty";
+    } else if (lengthOfGuilty < lengthOfNotGuilty) {
+      return "Not Guilty";
+    }
+  };
+
+  const colorOfGuiltyOrNotGuilty = (lengthOfGuilty, lengthOfNotGuilty) => {
+    if (lengthOfGuilty === lengthOfNotGuilty) {
+      return "grey";
+    } else if (lengthOfGuilty > lengthOfNotGuilty) {
+      return "#A5292A";
+    } else if (lengthOfGuilty < lengthOfNotGuilty) {
+      return "#4f78f2";
+    }
+  };
+
   return (
     <div style={{ marginBottom: "15px" }} onClick={clickIncident}>
       {editing ? (
@@ -56,16 +77,25 @@ const Incident = ({
               style={{
                 marginLeft: "5px",
                 marginTop: "5px",
-                width: "70px",
-                paddingLeft: "10px",
-                paddingTop: "4px",
-                paddingBottom: "4px",
+                width: "110px",
+                height: "30px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
                 borderRadius: "10px",
                 color: "white",
-                backgroundColor: "brown",
+                backgroundColor: `${colorOfGuiltyOrNotGuilty(
+                  incidentObj.leftSide.length,
+                  incidentObj.rightSide.length
+                )}`,
               }}
             >
-              <span>Incident</span>
+              <div>
+                {setGuiltyOrNotGuilty(
+                  incidentObj.leftSide.length,
+                  incidentObj.rightSide.length
+                )}
+              </div>
             </div>
             <form onSubmit={onSubmit}>
               <textarea
@@ -144,16 +174,25 @@ const Incident = ({
               style={{
                 marginLeft: "5px",
                 marginTop: "5px",
-                width: "70px",
-                paddingLeft: "10px",
-                paddingTop: "4px",
-                paddingBottom: "4px",
+                width: "110px",
+                height: "30px",
                 borderRadius: "10px",
                 color: "white",
-                backgroundColor: "brown",
+                backgroundColor: `${colorOfGuiltyOrNotGuilty(
+                  incidentObj.leftSide.length,
+                  incidentObj.rightSide.length
+                )}`,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              <span>Incident</span>
+              <div>
+                {setGuiltyOrNotGuilty(
+                  incidentObj.leftSide.length,
+                  incidentObj.rightSide.length
+                )}
+              </div>
             </div>
             {/* {incidentObj.attachmentUrl && (
               <img
