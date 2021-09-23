@@ -1,5 +1,5 @@
 import { dbService, storageService } from "firebaseInit";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import JudgeBtn from "./JudgeBtn";
 
 const IncidentDetail = ({
@@ -11,6 +11,7 @@ const IncidentDetail = ({
 }) => {
   const [editing, setEditing] = useState(false);
   const [newIncident, setNewIncident] = useState(incidentObj.text);
+  const [incident, setIncident] = useState([]);
   const onDeleteClick = async () => {
     const ok = window.confirm("Are you sure you want to delete this incident?");
     if (ok) {
@@ -34,6 +35,19 @@ const IncidentDetail = ({
     } = event;
     setNewIncident(value);
   };
+  useEffect(() => {
+    try {
+      dbService.doc(`incidents/${incidentObj.id}`).onSnapshot(snapshot => {
+        const incidentArray = {
+          id: snapshot.id,
+          ...snapshot.data(),
+        };
+        setIncident(incidentArray);
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  }, []);
 
   return (
     <div style={{ marginBottom: "15px", position: "fixed" }}>
@@ -151,11 +165,11 @@ const IncidentDetail = ({
             >
               <span>Incident</span>
             </div>
-            {incidentObj?.attachmentUrl && (
+            {incident?.attachmentUrl && (
               <div style={{ width: "85%", marginLeft: "20%" }}>
                 <img
                   alt="*"
-                  src={incidentObj.attachmentUrl}
+                  src={incident.attachmentUrl}
                   width="70%"
                   height="70%"
                 />
@@ -175,14 +189,14 @@ const IncidentDetail = ({
                 fontSize: "14px",
               }}
             >
-              {incidentObj.text}
+              {incident.text}
             </div>
             <div>
               <JudgeBtn
-                id={incidentObj.id}
+                id={incident.id}
                 userObj={userObj}
-                leftArray={incidentObj.leftSide}
-                rightArray={incidentObj.rightSide}
+                leftArray={incident.leftSide}
+                rightArray={incident.rightSide}
               />
 
               <div

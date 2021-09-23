@@ -4,7 +4,6 @@ import { dbService } from "firebaseInit";
 import React, { useEffect, useState } from "react";
 
 const MyCourt = ({ userObj }) => {
-  const [incidents, setIncidents] = useState([]);
   const [guilties, setGuilties] = useState([]);
   const [notGuilties, setNotGuilties] = useState([]);
   const [detail, setDetail] = useState(false);

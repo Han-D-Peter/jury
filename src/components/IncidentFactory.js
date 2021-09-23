@@ -62,6 +62,7 @@ const IncidentFactory = ({ userObj }) => {
       {attachment && (
         <div className="factoryForm__attachment">
           <img
+            alt="*"
             src={attachment}
             style={{
               backgroundImage: attachment,

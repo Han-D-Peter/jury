@@ -70,7 +70,7 @@ const JudgeBtn = ({ id, userObj, leftArray, rightArray }) => {
         }}
       >
         <div style={{ display: "flex", alignItems: "center" }}>
-          {leftArray.includes(userObj.uid) ? (
+          {leftArray?.includes(userObj.uid) ? (
             <button
               onClick={toggleLeftSide}
               style={{
@@ -106,10 +106,10 @@ const JudgeBtn = ({ id, userObj, leftArray, rightArray }) => {
           )}
           <GuiltyBar
             amount={
-              leftArray.length + rightArray.length > 0
+              leftArray?.length + rightArray?.length > 0
                 ? (
-                    leftArray.length /
-                    (leftArray.length + rightArray.length)
+                    leftArray?.length /
+                    (leftArray?.length + rightArray?.length)
                   ).toFixed(4) * 100
                 : 0
             }
@@ -122,10 +122,11 @@ const JudgeBtn = ({ id, userObj, leftArray, rightArray }) => {
                 marginRight: "10px",
               }}
             >
-              {leftArray.length + rightArray.length > 0 && leftArray.length > 0
+              {leftArray?.length + rightArray?.length > 0 &&
+              leftArray?.length > 0
                 ? (
-                    leftArray.length /
-                    (leftArray.length + rightArray.length)
+                    leftArray?.length /
+                    (leftArray?.length + rightArray?.length)
                   ).toFixed(4) *
                     100 +
                   "%"
@@ -133,7 +134,7 @@ const JudgeBtn = ({ id, userObj, leftArray, rightArray }) => {
             </span>
           </GuiltyBar>
           <div style={{ marginLeft: "3px" }}>
-            {leftArray.length + rightArray.length > 0 ? (
+            {leftArray?.length + rightArray?.length > 0 ? (
               <ImFire size={25} color={"red"} />
             ) : null}
           </div>
@@ -141,10 +142,10 @@ const JudgeBtn = ({ id, userObj, leftArray, rightArray }) => {
         <div style={{ display: "flex", alignItems: "center" }}>
           <NotGuiltyBar
             amount={
-              leftArray.length + rightArray.length > 0
+              leftArray?.length + rightArray?.length > 0
                 ? (
-                    rightArray.length /
-                    (leftArray.length + rightArray.length)
+                    rightArray?.length /
+                    (leftArray?.length + rightArray?.length)
                   ).toFixed(4) * 100
                 : 0
             }
@@ -157,17 +158,18 @@ const JudgeBtn = ({ id, userObj, leftArray, rightArray }) => {
                 marginLeft: "10px",
               }}
             >
-              {leftArray.length + rightArray.length > 0 && rightArray.length > 0
+              {leftArray?.length + rightArray?.length > 0 &&
+              rightArray?.length > 0
                 ? (
-                    rightArray.length /
-                    (leftArray.length + rightArray.length)
+                    rightArray?.length /
+                    (leftArray?.length + rightArray?.length)
                   ).toFixed(4) *
                     100 +
                   "%"
                 : null}
             </span>
           </NotGuiltyBar>
-          {rightArray.includes(userObj.uid) ? (
+          {rightArray?.includes(userObj.uid) ? (
             <button
               onClick={toggleRightSide}
               style={{

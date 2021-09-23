@@ -16,7 +16,7 @@ const AuthForm = () => {
       setEmail(value);
     } else if (name === "password") {
       setPassword(value);
-    } else if (name == "checkPassword") {
+    } else if (name === "checkPassword") {
       setCheckPassword(value);
     }
   };
