@@ -24,15 +24,16 @@
 
 |                                                         로그인 화면                                                          |                                                      게시글 동록 화면                                                      |
 | :--------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------: |
-|    ![로그인 화면](https://user-images.githubusercontent.com/67543454/153703690-4c7c17bd-6410-42bd-b57f-8bdfb765e7c0.gif)     | ![게시글 등록 화면](https://user-images.githubusercontent.com/67543454/153703737-8c5e015a-2591-474b-8975-75316ef6cbe3.gif) |
+|    ![로그인 화면](https://user-images.githubusercontent.com/57760806/156281998-d6c518cd-ea6e-45ef-9f81-f447bc780e74.png)     | ![게시글 등록 화면](https://user-images.githubusercontent.com/57760806/156282094-23fc7e06-2268-4561-9b15-cbdd46c3aa96.png) |
 |                                                      게시글 디테일 확인                                                      |
-| ![게시글 디테일 확인](https://user-images.githubusercontent.com/67543454/153703769-6bd0a6ea-2d4b-4807-bca7-059bb8721fd7.gif) |
+| ![게시글 디테일 확인](https://user-images.githubusercontent.com/57760806/156282179-18b8c162-fd7f-4c44-bcff-83d935707209.png) |
 
 ## ⚙&nbsp;&nbsp;프로젝트 설치 및 시작
 
 ### 프로젝트 클론
 
-> $ git clone []()
+> $ git clone
+
 
 ### 패키지 설치
 
